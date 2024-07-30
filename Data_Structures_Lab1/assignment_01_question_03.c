@@ -1,26 +1,32 @@
-#include <stdio.h>
+//  Find the second largest element in an unsorted array.
 
+#include <stdio.h>
 int main()
 {
-    printf("Enter the size of array\n");
+    printf("Enter the size of array: ");
     int n;
     scanf("%d", &n);
     int arr[n];
-    printf("Enter the elements of array\n");
+    printf("Enter the elements of array:\n");
     for (int i = 0; i < n; i++)
     {
         scanf("%d", &arr[i]);
     }
-    int max = arr[0];
-    int max2 = arr[0];
+    int largest = arr[0];
+    int secondLargest = arr[0];
     for (int i = 0; i < n; i++)
     {
-        if (arr[i] > max)
+        if (arr[i] > largest)
         {
-            max2 = max;
-            max = arr[i];
+            secondLargest = largest;
+            largest = arr[i];
+        }
+
+        else if (arr[i] > secondLargest && arr[i] != largest)
+        {
+            secondLargest = arr[i];
         }
     }
-    printf("The second maximum element is %d", max2);
+    printf("Second maximum element: %d", secondLargest);
     return 0;
 }

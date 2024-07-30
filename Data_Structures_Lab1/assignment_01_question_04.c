@@ -1,12 +1,11 @@
 #include <stdio.h>
-
 int main()
 {
-    printf("Enter the size of array\n");
+    printf("Enter the size of the square matrix: ");
     int n;
     scanf("%d", &n);
     int arr[n][n];
-    printf("Enter the elements of array\n");
+    printf("Enter the elements of the matrix\n");
     for (int i = 0; i < n; i++)
     {
         for (int j = 0; j < n; j++)
@@ -15,30 +14,66 @@ int main()
         }
     }
 
-    int r1, r2, r3, c1, c2, c3, d1, d2;
+    int magic_sum = 0;
     for (int i = 0; i < n; i++)
     {
-        int r1 = arr[1][i];
-        int r2 = arr[2][i];
-        int r3 = arr[3][i];
-        int c3 = arr[i][3];
-        int c2 = arr[i][2];
-        int c1 = arr[i][1];
-    }
-    for (int i = 0; i < n; i++)
-    {
-        int d1 = arr[i][i];
-        int d2 = arr[1][3] + arr[2][2] + arr[3][1];
+        magic_sum += arr[0][i];
     }
 
-    if (r1 != r2 && r2 != r3 && r3 != c1 && c1 != c2 && c2 != c3 && c3 != d1 && d1 != d2 && d2 != r1)
+    // Check sums of all rows
+    for (int i = 1; i < n; i++)
+    {
+        int row_sum = 0;
+        for (int j = 0; j < n; j++)
+        {
+            row_sum += arr[i][j];
+        }
+        if (row_sum != magic_sum)
+        {
+            printf("The given square is not a magic square\n");
+            return 0;
+        }
+    }
+
+    // Check sums of all columns
+    for (int j = 0; j < n; j++)
+    {
+        int col_sum = 0;
+        for (int i = 0; i < n; i++)
+        {
+            col_sum += arr[i][j];
+        }
+        if (col_sum != magic_sum)
+        {
+            printf("The given square is not a magic square\n");
+            return 0;
+        }
+    }
+
+    // Check the sum of the main diagonal
+    int diag1_sum = 0;
+    for (int i = 0; i < n; i++)
+    {
+        diag1_sum += arr[i][i];
+    }
+    if (diag1_sum != magic_sum)
     {
         printf("The given square is not a magic square\n");
-    }
-    else
-    {
-        printf("The given square is a magic square\n");
+        return 0;
     }
 
+    // Check the sum of the secondary diagonal
+    int diag2_sum = 0;
+    for (int i = 0; i < n; i++)
+    {
+        diag2_sum += arr[i][n - 1 - i];
+    }
+    if (diag2_sum != magic_sum)
+    {
+        printf("The given square is not a magic square\n");
+        return 0;
+    }
+
+    printf("The given square is a magic square\n");
     return 0;
 }
