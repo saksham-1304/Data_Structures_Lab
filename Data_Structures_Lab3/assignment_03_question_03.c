@@ -1,7 +1,7 @@
+// Sum of Elements Of Array Using Recurssion
 
 #include <stdio.h>
-    int
-    sum_recursive(int arr[], int n)
+int sum_recursive(int arr[], int n)
 {
     if (n <= 0)
     {
