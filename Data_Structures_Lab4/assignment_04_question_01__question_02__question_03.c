@@ -161,6 +161,7 @@ int main()
         printf("%d %d %d\n", sparseSum[i][0], sparseSum[i][1], sparseSum[i][2]);
     }
 
+
     //Question 3: To Calculate Transpose Of The Result of Array
     for (int i = 0; i < l; i++)
     {
