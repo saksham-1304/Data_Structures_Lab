@@ -1,3 +1,5 @@
+// Find Union And Intersection Of The Given Arrays
+
 #include <stdio.h>
 void findUnion(int arr1[], int size1, int arr2[], int size2)
 {

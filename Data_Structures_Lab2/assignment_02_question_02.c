@@ -1,3 +1,5 @@
+// Matrix Multiplication
+
 #include <stdio.h>
 
 #define MAX_ROWS 100
