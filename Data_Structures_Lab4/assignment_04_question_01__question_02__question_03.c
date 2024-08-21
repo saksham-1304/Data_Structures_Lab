@@ -1,3 +1,5 @@
+//Question 1:Take input as a Matrix and Convert it to Sparse Matrix
+
 #include <stdio.h>
 int main()
 {
@@ -97,6 +99,9 @@ int main()
     int sparseSum[count1 + count2][3]; // Maximum possible size
     int i = 0, j = 0, l = 0;
 
+    //Question 2 : To Add Two Sparse Matrices
+
+
     // Traverse both sparse matrices and add corresponding elements
     while (i < count1 && j < count2)
     {
@@ -156,6 +161,7 @@ int main()
         printf("%d %d %d\n", sparseSum[i][0], sparseSum[i][1], sparseSum[i][2]);
     }
 
+    //Question 3: To Calculate Transpose Of The Result of Array
     for (int i = 0; i < l; i++)
     {
         int temp = sparseSum[i][0];
