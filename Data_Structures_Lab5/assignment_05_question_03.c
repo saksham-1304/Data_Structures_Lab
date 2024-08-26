@@ -1,4 +1,4 @@
-// To Print The Values At Even And Odd Nodes Of A Linked List Seperately
+// Reverse A Linked List
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -7,6 +7,7 @@ struct Node
     int data;
     struct Node *next;
 };
+
 struct Node *createNode(int data)
 {
     struct Node *newNode = (struct Node *)malloc(sizeof(struct Node));
@@ -14,46 +15,45 @@ struct Node *createNode(int data)
     newNode->next = NULL;
     return newNode;
 }
-void printOdd(struct Node *head)
+
+void printList(struct Node *head)
 {
-    int i = 1;
-    struct Node *curr = head;
-    while (curr != NULL)
+    struct Node *current = head;
+    while (current != NULL)
     {
-        if (i % 2 != 0)
-        {
-            printf("%d ", curr->data);
-        }
-        i++;
-        curr = curr->next;
+        printf("%d ", current->data);
+        current = current->next;
     }
+    printf("\n");
 }
-void printEven(struct Node *head)
+
+void reverse(struct Node *head)
 {
-    int i = 1;
     struct Node *curr = head;
-    while (curr != NULL)
+    if (curr == NULL)
     {
-        if (i % 2 == 0)
-        {
-            printf("%d ", curr->data);
-        }
-        i++;
-        curr = curr->next;
+        return ;
+    }
+    else
+    {
+        reverse(curr->next);
+        printf("%d ", curr->data);
     }
 }
 
 int main()
 {
-    struct Node *head = createNode(14);
-    head->next = createNode(27);
-    head->next->next = createNode(23);
-    head->next->next->next = createNode(42);
-    head->next->next->next->next = createNode(15);
-    printf("Value at Odd Nodes ");
-    printOdd(head);
+    struct Node *head = createNode(1);
+    head->next = createNode(2);
+    head->next->next = createNode(3);
+    head->next->next->next = createNode(4);
+    head->next->next->next->next = createNode(5);
+
+    printf("Original Linked List: ");
+    printList(head);
+    printf("Reversed Linked List: ");
+    reverse(head);
     printf("\n");
-    printf("Value at Even Nodes ");
-    printEven(head);
-    printf("\n");
+
+    return 0;
 }
